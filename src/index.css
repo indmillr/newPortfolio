@@ -12,3 +12,13 @@
    --lighter: linear-gradient(159deg, rgb(45, 45, 58) 0%, rgb(43, 43, 53) 100%);
    --background: #191923;
 }
+
+body {
+   width: 100%;
+   background-color: var(--background);
+   color: #dddddd;
+}
+
+.green {
+   color: #01be96;
+}
