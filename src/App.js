@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Header from "./components/Banner/Header";
 import ProfileComponent from "./components/Banner/ProfileComponent";
+import Services from "./components/Service/Services";
 
 function App() {
    return (
@@ -10,6 +11,7 @@ function App() {
             <Header />
             <ProfileComponent />
          </Banner>
+         <Services />
       </Container>
    );
 }
