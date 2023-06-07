@@ -1,34 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { GiCandleFlame } from "react-icons/gi";
-import { useState } from "react";
 
 const Header = () => {
    const [bar, setBar] = useState(false);
-
    return (
       <Container bar={bar}>
          <Logo>
             <span className="green">
                <GiCandleFlame />
             </span>
-            <h1>Ian Miller</h1>
+            <h1>Portfolio</h1>
          </Logo>
-         <Nav>
+         <Nav bar={bar}>
             <span>
-               <a href="#">Home</a>
+               <a href="#home">Home</a>
             </span>
             <span>
-               <a href="#">Services</a>
+               <a href="#service">Services</a>
             </span>
             <span>
-               <a href="#">Projects</a>
+               <a href="#project">Projects</a>
             </span>
             <span>
-               <a href="#">Testimonials</a>
+               <a href="#client">Testimonials</a>
             </span>
             <span>
-               <a href="#">Portfolio</a>
+               <a href="#footer">Portfolio</a>
             </span>
          </Nav>
          <div onClick={() => setBar(!bar)} className="bars">
@@ -48,6 +46,8 @@ const Container = styled.div`
    width: 80%;
    margin: 0 auto;
    padding: 1.5rem 0;
+   position: relative;
+   animation: header 500ms ease-in-out;
    @media (max-width: 840px) {
       width: 90%;
    }
@@ -56,7 +56,6 @@ const Container = styled.div`
    }
    @media (max-width: 640px) {
       .bars {
-         display: show;
          width: 40px;
          height: 40px;
          position: relative;
@@ -70,21 +69,23 @@ const Container = styled.div`
             width: 100%;
             height: 2px;
             background-color: ${(props) =>
-               props.bar ? "transparent" : "#ddd"};
+               props.bar ? "transparent" : "#fff"};
             transition: all 400ms ease-in-out;
             :before,
             :after {
                content: "";
                width: 100%;
                height: 2px;
-               background-color: #ddd;
+               background-color: #fff;
                position: absolute;
             }
+
             :before {
                transform: ${(props) =>
                   props.bar ? "rotate(45deg)" : "translateY(10px)"};
                transition: all 400ms ease-in-out;
             }
+
             :after {
                transform: ${(props) =>
                   props.bar ? "rotate(-45deg)" : "translateY(-10px)"};
@@ -94,7 +95,6 @@ const Container = styled.div`
       }
    }
 `;
-
 const Logo = styled.div`
    display: flex;
    align-items: center;
@@ -108,31 +108,27 @@ const Logo = styled.div`
       font-size: 1.2rem;
    }
 `;
-
 const Nav = styled.div`
    @media (max-width: 640px) {
-      position: absolute;
+      position: fixed;
       display: flex;
       flex-direction: column;
       background-color: #01be96;
-      top: 0;
-      right: 0;
-      left: 0;
-      bottom: 0;
+      inset: 0;
       justify-content: center;
       align-items: center;
       font-size: 2rem;
       gap: 2rem;
       font-weight: 700;
       height: ${(props) => (props.bar ? "100vh" : 0)};
-      transition: all 400ms ease-in-out;
-      z-index: 100;
+      transition: height 400ms ease-in-out;
       overflow: hidden;
+      z-index: 99;
    }
    span {
       margin-left: 1rem;
       a {
-         color: #dddddd;
+         color: #fff;
          text-decoration: none;
          font-weight: 400;
          position: relative;
@@ -143,7 +139,7 @@ const Nav = styled.div`
             right: 0;
             bottom: -5px;
             height: 2px;
-            background-color: #dddddd;
+            background-color: #fff;
             transform: scale(0);
             transform-origin: right;
             transition: transform 400ms ease-in-out;

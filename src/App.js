@@ -1,12 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import Header from "./components/Banner/Header";
+import ProfileComponent from "./components/Banner/ProfileComponent";
 
 function App() {
    return (
       <Container>
          <Banner>
             <Header />
+            <ProfileComponent />
          </Banner>
       </Container>
    );
@@ -22,4 +24,9 @@ const Banner = styled.div`
       rgb(45, 45, 58) 0%,
       rgb(43, 43, 53) 100%
    );
+   height: 100vh;
+   @media (max-width: 640px) {
+      height: 100%;
+      padding-bottom: 2rem;
+   }
 `;
