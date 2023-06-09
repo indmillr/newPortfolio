@@ -1,20 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-import SliderComponent from "./SliderComponent";
+import SliderComp from "./Slider";
 
 const Projects = () => {
    return (
-      <Container>
+      <Container id="project">
          <h1>
             Recent <span className="green">Projects</span>
          </h1>
          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
-            dolorem totam esse. Dolore voluptatum quo eligendi, reiciendis sed
-            placeat repellendus.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto
+            doloremque voluptate excepturi porro sed totam quis animi dolorum
+            rerum earum.
          </p>
          <Slide>
-            <SliderComponent />
+            <SliderComp />
          </Slide>
       </Container>
    );
@@ -28,14 +28,22 @@ const Container = styled.div`
    margin: 0 auto;
    padding: 3rem 0;
    text-align: center;
+   position: relative;
+   @media (max-width: 840px) {
+      width: 90%;
+   }
    h1 {
       font-size: 1.9rem;
    }
+
    p {
       width: 28rem;
       margin: 0 auto;
       padding: 1rem 0;
       font-size: 0.9rem;
+      @media (max-width: 500px) {
+         width: 90%;
+      }
    }
 `;
 

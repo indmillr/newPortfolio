@@ -1,17 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import ProjectImg from "../../assets/images/drum_machine.jpg";
 
-const Project = () => {
+const Project = (props) => {
+   const { img, disc } = props.item;
    return (
-      <Container>
-         <img src={ProjectImg} alt="project" />
-         <div className="desc">
+      <Container className="project">
+         <img src={img} alt="project" />
+         <div className="disc">
             <h1>Description</h1>
             <p>
-               Lorem ipsum dolor sit amet consectetur adipisicing elit.
-               Inventore animi ipsam esse corporis magnam mollitia illo facilis
-               dicta iste odit. <a href="#">demo</a>
+               {disc}
+               <a href="/">demo</a>
             </p>
          </div>
       </Container>
@@ -29,15 +28,13 @@ const Container = styled.div`
    cursor: pointer;
    position: relative;
    overflow: hidden;
-
    img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 400ms ease-in-out;
    }
-
-   .desc {
+   .disc {
       position: absolute;
       right: 0;
       left: 0;
@@ -46,7 +43,6 @@ const Container = styled.div`
       padding: 0.5rem;
       background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8));
       transition: all 400ms ease-in-out;
-
       h1 {
          font-size: 1rem;
       }
@@ -65,7 +61,7 @@ const Container = styled.div`
       transform: scale(1.3);
    }
 
-   :hover > .desc {
+   :hover > .disc {
       bottom: 0;
    }
 `;
