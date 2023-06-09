@@ -4,6 +4,7 @@ import Header from "./components/Banner/Header";
 import ProfileComponent from "./components/Banner/ProfileComponent";
 import Services from "./components/Service/Services";
 import Projects from "./components/Projects/Projects";
+import Clients from "./components/Clients/Clients";
 
 function App() {
    return (
@@ -16,6 +17,7 @@ function App() {
          <Projects>
             <Project />
          </Projects>
+         <Clients />
       </Container>
    );
 }
